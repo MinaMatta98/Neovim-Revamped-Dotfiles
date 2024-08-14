@@ -193,6 +193,7 @@ return {
 			{ mode = "n", "<leader>gc", "<cmd>Git commit<CR>", desc = "Git Commit" },
 			{ mode = "n", "<leader>gp", "<cmd>Git push<CR>", desc = "Git Push" },
 			{ mode = "n", "<leader>gI", "<cmd>Git init<CR>", desc = "Git Init" },
+			{ mode = "n", "<leader>gs", "<cmd>Git status<CR>", desc = "Git Status" },
 			{
 				mode = "n",
 				"<leader>gC",
@@ -217,7 +218,7 @@ return {
 					local address = vim.fn.input("Git Remote Address: ")
 
 					if branch ~= "" and address ~= "" then
-						local result = vim.cmd("Git remote add '" .. branch .. "' '" .. address .. "'<CR>")
+						local result = vim.cmd("Git remote add '" .. branch .. "' '" .. address .. "'")
 						if result ~= "" then
 							print(result)
 						else
