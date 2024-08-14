@@ -215,17 +215,18 @@ return {
 				function()
 					local branch = vim.fn.input("Git Remote Branch: ")
 
-					local address = vim.fn.input("Git Remote Address: ")
+					local address = vim.fn.input("Git Remote Repo Name (Name/Repo): ")
 
 					if branch ~= "" and address ~= "" then
-						local result = vim.cmd("Git remote add '" .. branch .. "' '" .. address .. "'")
+						local result =
+							vim.cmd("Git remote add '" .. branch .. "' 'https://github.com/" .. address .. "'")
 						if result ~= "" then
 							print(result)
 						else
 							print("Executed Command")
 						end
 					else
-						warn("Branch and Address must be provided")
+						print("Branch and Address must be provided")
 					end
 				end,
 				desc = "Git Remote Add",
