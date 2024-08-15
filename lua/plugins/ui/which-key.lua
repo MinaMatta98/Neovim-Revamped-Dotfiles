@@ -196,6 +196,7 @@ return {
 			{ mode = "n", "<leader>gp", "<cmd>Git push<CR>", desc = "Git Push" },
 			{ mode = "n", "<leader>gI", "<cmd>Git init<CR>", desc = "Git Init" },
 			{ mode = "n", "<leader>gs", "<cmd>Git status<CR>", desc = "Git Status" },
+			{ mode = "n", "<leader>gl", "<cmd>Git log<CR>", desc = "Git Log" },
 			{
 				mode = "n",
 				"<leader>gC",
@@ -210,6 +211,22 @@ return {
 					end
 				end,
 				desc = "Git Clone Repo Into Current Directory",
+			},
+			{
+				mode = "n",
+				"<leader>gf",
+				function()
+					local branch = vim.api.nvim_command_output("Git rev-parse --abbrev-ref HEAD")
+					local command = "Git remote get-url " .. branch
+					local repo = vim.api.nvim_command_output(command)
+
+					if repo ~= "" then
+						os.execute("xdg-open " .. repo)
+					else
+						print("No remote repository found")
+					end
+				end,
+				desc = "Git Open Remote Repo",
 			},
 			{
 				mode = "n",
