@@ -1,7 +1,12 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		dependencies = { "mxsdev/nvim-dap-vscode-js", "nicholasmata/nvim-dap-cs" },
+		dependencies = {
+			"mxsdev/nvim-dap-vscode-js",
+			"nicholasmata/nvim-dap-cs",
+			"williamboman/mason.nvim",
+			"jay-babu/mason-nvim-dap.nvim",
+		},
 		lazy = true,
 		recommended = true,
 		desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
@@ -48,6 +53,7 @@ return {
 
 			-- js setup
 			local _ = require("plugins.ide.dap.dap-config.js")(dap)
+
 		end,
 	},
 	{

@@ -1,6 +1,7 @@
 return {
 	"startup-nvim/startup.nvim",
 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	priority = 999,
 	config = function()
 		local theme = {
 			-- -	- every line should be same width without escaped \

@@ -11,7 +11,7 @@ return {
 				"codelldb",
 				"bash",
 				"coreclr",
-				"js",
+				"js@v1.76.1",
 			},
 		})
 	end,

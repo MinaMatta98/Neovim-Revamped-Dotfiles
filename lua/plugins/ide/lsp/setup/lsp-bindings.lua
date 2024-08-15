@@ -12,7 +12,7 @@ local M = function(bufopts, neogen)
 		vim.lsp.buf.implementation()
 	end, vim.tbl_extend("force", bufopts, { desc = "Goto Implementation" }))
 
-	vim.keymap.set({ "i", "n" }, "<c-s>", function()
+	vim.keymap.set({ "i", "n" }, "<c-d>", function()
 		vim.lsp.buf.signature_help()
 	end, vim.tbl_extend("force", bufopts, { desc = "Signature Help" }))
 

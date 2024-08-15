@@ -6,8 +6,7 @@ return {
 		event = "InsertEnter",
 		opts = {
 			panel = {
-				enabled = false,
-				auto_refresh = false,
+				enabled = false, auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
 					jump_next = "]]",
@@ -104,14 +103,14 @@ return {
 					function()
 						chat.open()
 					end,
-					desc = "CopilotChat - Prompt actions",
+					desc = "CopilotChat - Open Chat Window",
 				},
 				{
-					"<leader>cco",
+					"<leader>ccc",
 					function()
 						chat.close()
 					end,
-					desc = "CopilotChat - Prompt actions",
+					desc = "CopilotChat - Close Chat Window",
 				},
 			}
 		end,
