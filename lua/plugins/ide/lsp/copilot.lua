@@ -106,6 +106,13 @@ return {
 					end,
 					desc = "CopilotChat - Prompt actions",
 				},
+				{
+					"<leader>cco",
+					function()
+						chat.close()
+					end,
+					desc = "CopilotChat - Prompt actions",
+				},
 			}
 		end,
 		-- See Commands section for default commands if you want to lazy load on them
