@@ -182,7 +182,9 @@ return {
 			debug = false, -- enable wk.log in the current directory
 		})
 		wk.add({
-			-- { "<leader>f", group = "file" }, -- group
+			-- { "<leader>t", group = "file" }, -- group
+			{ "<leader>c", group = "Github Copilot" }, -- group
+			{ "<leader>f", group = "file" }, -- group
 			{ "<leader>b", group = "buffers" }, -- group
 			{ "<leader>g", group = "git" }, -- group
 			{ "<c-s-q>", "<cmd>Bwipeout<cr>", mode = "n", { silent = true }, desc = "Wipe Current Buffer" },

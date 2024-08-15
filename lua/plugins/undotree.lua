@@ -3,6 +3,12 @@ return {
 	dependencies = "nvim-lua/plenary.nvim",
 	config = true,
 	keys = { -- load the plugin only when using it's keybinding:
-		{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", desc = "Visual Undo Timeline" },
+		{
+			"<leader>u",
+			function()
+				require("undotree").toggle()
+			end,
+			desc = "Undo Timeline Toggle",
+		},
 	},
 }

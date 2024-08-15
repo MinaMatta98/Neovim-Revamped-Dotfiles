@@ -1,6 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
+		dependencies = { "mxsdev/nvim-dap-vscode-js", "nicholasmata/nvim-dap-cs" },
 		lazy = true,
 		recommended = true,
 		desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
@@ -42,11 +43,11 @@ return {
 			vim.api.nvim_set_hl(0, "yellow", { fg = "#FFFF00" })
 			vim.api.nvim_set_hl(0, "orange", { fg = "#f09000" })
 
-			local cs = require("plugins.ide.dap.dap-config.cs")
+			-- cs setup
+			local _ = require("plugins.ide.dap.dap-config.cs")(dap)
 
-			dap.configurations.cs = cs.config
-
-			dap.adapters.coreclr = cs.coreclr
+			-- js setup
+			local _ = require("plugins.ide.dap.dap-config.js")(dap)
 		end,
 	},
 	{

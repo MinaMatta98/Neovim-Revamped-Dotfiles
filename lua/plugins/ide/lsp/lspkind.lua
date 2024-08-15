@@ -1,6 +1,7 @@
 return {
 	"onsails/lspkind.nvim",
 	dependencies = { "neovim/nvim-lspconfig" },
+	event = { "VeryLazy" },
 	config = function()
 		require("lspkind").init({
 			-- with_text = true,
