@@ -8,13 +8,13 @@ return {
 		"danymat/neogen",
 		"aznhe21/actions-preview.nvim",
 		"antosha417/nvim-lsp-file-operations",
-		"jay-babu/mason-nvim-dap.nvim",
+		{ "mason-nvim-dap", dependencies = { "mason" } },
 		"ray-x/lsp_signature.nvim",
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/neotest",
-		"SmiteshP/nvim-navic",
 		"hoffs/omnisharp-extended-lsp.nvim",
 		"antosha417/nvim-lsp-file-operations", -- auto setup
+		"artemave/workspace-diagnostics.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -38,6 +38,9 @@ return {
 
 			local wk = require("which-key")
 
+			-- WARNING: The cost of this needs evaluation
+			local diagnostics = require("workspace-diagnostics")
+
 			local _ = require("plugins.ide.lsp.setup.handlers")(builtin)
 
 			local _ = require("plugins.ide.lsp.setup.neotest-bindings")(neotest, bufopts, wk)
@@ -46,7 +49,9 @@ return {
 
 			local _ = require("plugins.ide.lsp.setup.lsp-bindings")(bufopts, neogen)
 
-			local _ = require("plugins.ide.lsp.setup.diagnostics")(builtin, bufopts, bufnr)
+			local _ = require("plugins.ide.lsp.setup.diagnostics")(client, builtin, bufopts, bufnr, diagnostics)
+
+			require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
 			if client.name == "rust-analyzer" then
 				vim.keymap.set("n", "<leader>O", function()
@@ -59,14 +64,38 @@ return {
 
 				vim.keymap.set("n", "<leader>A", function()
 					vim.cmd.RustLsp("codeAction")
-				end, { buffer = bufnr })
+				end, { buffer = bufnr, desc = "LSP Code Actions" })
 			else
 				local actions = require("actions-preview")
 				vim.keymap.set({ "v", "n" }, "<leader>A", actions.code_actions, { desc = "Code Actions" })
 			end
 
-			if client.server_capabilities.documentSymbolProvider then
+			if client.name == "gopls" then
+				wk.add({ { "<leader>G", group = "Go Commands", { buffer = bufnr } } })
+
+				vim.keymap.set("n", "<leader>GR", function()
+					vim.cmd.GoRun("%")
+				end, { desc = "Go Run Module" })
+
+				vim.keymap.set("n", "<leader>Gr", function()
+					local comm = vim.fn.input("GoRun Args: ") -- Prompt the user for input
+					local file = vim.fn.expand("%")
+					local handle = vim.fn.system("go run " .. file .. " " .. comm)
+					print(handle)
+				end, { desc = "Go Run Module with Args" })
+
+				vim.keymap.set("n", "<leader>Gmt", function()
+					require("go.gopls").tidy()
+				end, { desc = "Go Mod Tidy" })
+			end
+
+			if client.server_capabilities.documentSymbolProvider and navic.is_available() then
 				navic.attach(client, bufnr)
+			end
+
+			if client.server_capabilities.inlayHintProvider then
+				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+				vim.api.nvim_set_hl(0, "LspInlayHint", { fg = vim.api.nvim_get_hl_by_name("Comment", true).foreground })
 			end
 		end
 
@@ -108,6 +137,10 @@ return {
 
 		local _ =
 			require("plugins.ide.lsp.setup.omnisharp")(lspconfig, on_attach, capabilities, omnisharp_extended, flags)
+
+		local _ = require("plugins.ide.lsp.setup.go")(lspconfig, flags, capabilities, on_attach)
+
+		local _ = require("plugins.ide.lsp.setup.lua")(lspconfig, flags, capabilities, on_attach)
 
 		return on_attach
 	end,
