@@ -19,7 +19,8 @@ return {
 			group_empty = true,
 		},
 		filters = {
-			dotfiles = false,
+			enable = false,
+			-- dotfiles = false,
 		},
 		update_cwd = true,
 		update_focused_file = {
