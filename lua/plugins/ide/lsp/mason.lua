@@ -3,6 +3,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"williamboman/mason.nvim",
+			name = "mason",
 			opts = {
 				ui = {
 					icons = {
