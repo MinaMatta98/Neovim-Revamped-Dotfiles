@@ -4,8 +4,7 @@ return {
 		dependencies = {
 			"mxsdev/nvim-dap-vscode-js",
 			"nicholasmata/nvim-dap-cs",
-			"williamboman/mason.nvim",
-			"jay-babu/mason-nvim-dap.nvim",
+			{ "mason-nvim-dap", dependencies = { "mason" } },
 		},
 		lazy = true,
 		recommended = true,
@@ -53,7 +52,6 @@ return {
 
 			-- js setup
 			local _ = require("plugins.ide.dap.dap-config.js")(dap)
-
 		end,
 	},
 	{
