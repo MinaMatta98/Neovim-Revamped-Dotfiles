@@ -186,6 +186,15 @@ return {
 		status = {}, --- @see section on statusline components
 		format = {}, --- @see section on formatting
 	},
+	keys = {
+		{
+			"<leader>nd",
+			function()
+				require("noice").cmd("dismiss")
+			end,
+			desc = "Noice Dismiss Notices",
+		},
+	},
 	dependencies = {
 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 		"MunifTanjim/nui.nvim",
