@@ -35,6 +35,10 @@ return {
 				"lemminx",
 				"cssls",
 				"omnisharp",
+				"gopls",
+				"marksman",
+				"sqlls",
+				"unocss"
 			},
 		},
 		---@type '"prepend"' | '"append"' | '"skip"'
