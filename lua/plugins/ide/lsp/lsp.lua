@@ -144,6 +144,8 @@ return {
 
 		local _ = require("plugins.ide.lsp.setup.typst")(lspconfig)
 
+		local _ = require("plugins.ide.lsp.setup.sql")(lspconfig)
+
 		local _ =
 			require("plugins.ide.lsp.setup.omnisharp")(lspconfig, on_attach, capabilities, omnisharp_extended, flags)
 
