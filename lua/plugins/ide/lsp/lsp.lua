@@ -128,6 +128,8 @@ return {
 			"cssls",
 			"clangd",
 			"html",
+			"marksman",
+			"unocss",
 		}
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
