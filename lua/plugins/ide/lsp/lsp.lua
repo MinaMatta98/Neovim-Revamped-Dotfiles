@@ -102,7 +102,7 @@ return {
 				navic.attach(client, bufnr)
 			end
 
-			if client.server_capabilities.inlayHintProvider then
+			if client.server_capabilities.inlayHintProvider and client.name ~= "gopls" then
 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 				vim.api.nvim_set_hl(0, "LspInlayHint", { fg = vim.api.nvim_get_hl_by_name("Comment", true).foreground })
 			end
