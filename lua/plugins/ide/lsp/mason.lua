@@ -31,7 +31,6 @@ return {
 				"typst_lsp",
 				"taplo",
 				"jsonls",
-				-- "csharp_ls",
 				"lemminx",
 				"cssls",
 				"omnisharp",
