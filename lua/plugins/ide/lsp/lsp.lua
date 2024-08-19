@@ -88,6 +88,14 @@ return {
 				vim.keymap.set("n", "<leader>Gmt", function()
 					require("go.gopls").tidy()
 				end, { desc = "Go Mod Tidy" })
+
+				vim.keymap.set("n", "<leader>Gat", function()
+					require("go.tags").add(unpack({ buffer = bufnr }))
+				end, { desc = "Go Add Tags" })
+
+				vim.keymap.set("n", "<leader>Grt", function()
+					require("go.tags").rm(unpack({ buffer = bufnr }))
+				end, { desc = "Go Add Tags" })
 			end
 
 			if client.server_capabilities.documentSymbolProvider and navic.is_available() then
