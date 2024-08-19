@@ -1,4 +1,4 @@
-local M = function(builtin, bufopts, bufnr)
+local M = function(client, builtin, bufopts, bufnr, diagnostics)
 	require("lsp_signature").on_attach({
 		bind = true, -- This is mandatory, otherwise border config won't get registered.
 		handler_opts = {
@@ -26,6 +26,7 @@ local M = function(builtin, bufopts, bufnr)
 	end
 
 	vim.keymap.set("n", "gD", function()
+		diagnostics.populate_workspace_diagnostics(client, bufnr)
 		builtin.diagnostics()
 	end, vim.tbl_extend("force", bufopts, { desc = "LSP diagnostics" }))
 
