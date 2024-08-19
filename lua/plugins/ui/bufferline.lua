@@ -100,7 +100,7 @@ return {
 				--           -- can also be a table containing 2 custom separators
 				--           -- [focused and unfocused]. eg: { '|', '|' }
 				--           -- separator_style = "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
-				seperator_style = "slope",
+				seperator_style = "slant",
 				--           -- enforce_regular_tabs = false,
 				--           -- always_show_bufferline = true | false,
 				--           -- auto_toggle_bufferline = true | false,
