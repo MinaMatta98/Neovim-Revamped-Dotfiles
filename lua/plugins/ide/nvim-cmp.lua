@@ -10,6 +10,7 @@ return {
 		"rcarriga/cmp-dap",
 		"zbirenbaum/copilot-cmp",
 		{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+		{ "MattiasMTS/cmp-dbee", dependencies = { "dbee" } },
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -129,7 +130,7 @@ return {
 				{ name = "nvim_lsp_code_action" },
 				{ name = "luasnip" },
 				-- { name = 'nvim_lsp_document_symbol' },
-				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp", trigger_characters = { "-" } },
 				{ name = "cmp_buffer" },
 				{ name = "path" },
 				{ name = "crates" },
