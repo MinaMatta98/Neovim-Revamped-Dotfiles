@@ -15,6 +15,7 @@ return {
 		"hoffs/omnisharp-extended-lsp.nvim",
 		"antosha417/nvim-lsp-file-operations", -- auto setup
 		"artemave/workspace-diagnostics.nvim",
+		"nanotee/sqls.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
