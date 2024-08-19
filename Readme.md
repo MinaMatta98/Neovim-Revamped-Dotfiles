@@ -1,5 +1,14 @@
 # Nvim Dotfiles
-Revamed NeoVim setup for the cultured programmer
+Revamed NeoVim setup for the cultured programmer.
+
+> [!NOTE]
+> This repository aims to be OS and agnostic, but there may be slight changes required to duplicate it on non arch-based linux distributions.
+> Allow for a complete installation and restart prior to use.
+
+> In the event of a failure to initialize correctly, run:
+> ```lua
+>   :checkhealth
+> ```
 
 ## Much Bling, Mouse Never
 
