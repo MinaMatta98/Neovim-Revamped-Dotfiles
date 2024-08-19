@@ -13,6 +13,8 @@ return {
 				"bash",
 				"coreclr",
 				"js@v1.76.1",
+				"go-debug-adapter",
+				"delve",
 			},
 		})
 	end,
