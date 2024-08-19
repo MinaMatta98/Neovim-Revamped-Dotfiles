@@ -3,10 +3,11 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		lazy = false,
+		enabled = true,
 		-- opts = {},
 		opts = {
 			-- A list of parser names, or "all" (the listed parsers MUST always be installed)
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "go" },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
@@ -30,13 +31,18 @@ return {
 				-- list of language that will be disabled
 				-- disable = { "c", "rust" },
 				-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-				disable = function(lang, buf)
-					local max_filesize = 10 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						return true
-					end
-				end,
+				-- this is fn(lang, buf) -> bool
+				-- disable = function(lang, buf)
+				-- 	local max_filesize = 10 * 1024 -- 100 KB
+				-- 	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+				-- 	if ok and stats and stats.size > max_filesize then
+				-- 		return true
+				-- 	end
+				-- 	if lang == "markdown_inline" or "markdown" then
+				-- 		return true
+				-- 	end
+				-- end,
+				disable = { "markdown", "markdown_inline" },
 
 				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 				-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -47,12 +53,15 @@ return {
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.install").prefer_git = true
 		end,
 	},
 	{
 		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+		branch = "master",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		event = "FileType",
+		enabled = true,
 		config = function()
 			local rainbow_delimiters = require("rainbow-delimiters")
 			require("rainbow-delimiters.setup").setup({
