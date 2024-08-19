@@ -9,6 +9,7 @@ return {
 		"nvim-neotest/neotest-plenary",
 		"Issafalcon/neotest-dotnet",
 		"rouge8/neotest-rust",
+		"nvim-neotest/neotest-go",
 	},
 	config = function()
 		local opts = {
@@ -39,6 +40,7 @@ return {
 				}),
 				require("neotest-plenary"),
 				require("neotest-rust"),
+				require("neotest-go"),
 			},
 		}
 		require("neotest").setup(opts)
