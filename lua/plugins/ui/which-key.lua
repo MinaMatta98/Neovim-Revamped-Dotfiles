@@ -182,7 +182,6 @@ return {
 			debug = false, -- enable wk.log in the current directory
 		})
 		wk.add({
-			-- { "<leader>t", group = "file" }, -- group
 			{ "<leader>c", group = "Github Copilot" }, -- group
 			{ "<leader>f", group = "file" }, -- group
 			{ "<leader>b", group = "buffers" }, -- group
