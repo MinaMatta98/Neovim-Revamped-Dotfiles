@@ -1,7 +1,7 @@
 return {
 	"code-biscuits/nvim-biscuits",
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
-	enabled = true,
+	enabled = false,
 	opts = {
 		default_config = {
 			-- max_length = 12,

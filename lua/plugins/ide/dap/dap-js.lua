@@ -11,7 +11,7 @@ return {
 	opts = {
 		-- debugger_path = require("mason-registry").get_package("js"):get_install_path() .. "/js-debug-adapter",
 		-- debugger_path = require("mason-registry").get_package("js-debug-adapter"):get_install_path()
-			-- .. "/vscode-js-debug",
+		-- .. "/vscode-js-debug",
 		debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
 		adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
 		-- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.

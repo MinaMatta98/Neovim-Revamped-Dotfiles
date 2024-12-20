@@ -2,19 +2,26 @@ local M = function(dap)
 	for _, language in ipairs({ "typescript", "javascript" }) do
 		dap.configurations[language] = {
 			{
+				-- type = "pwa-node",
 				type = "pwa-node",
 				request = "launch",
 				name = "Launch Current File (Typescript)",
 				cwd = "${workspaceFolder}",
-				runtimeArgs = { "--loader=ts-node/esm", "--trace-warnings" },
-				program = "${file}",
-				runtimeExecutable = "node",
+				-- runtimeExetuable = "${workspaceRoot}/node_modules/.bin/webpack-dev-server",
+				-- runtimeArgs = { "-d", "inline-source-map", "--config", "webpack.common.js" },
+				-- program = "${file}",
+				-- runtimeExecutable = "node",
 				sourceMaps = true,
-				protocol = "inspector",
-				outFiles = { "${workspaceFolder}/**/**/*", "!**/node_modules/**" },
+				stopOnEntry = true,
+				-- protocol = "inspector",
+				port = 9229,
+				env = {
+					NODE_ENV = "development",
+				},
+				-- outFiles = { "${workspaceFolder}/**/**/*", "!**/node_modules/**" },
 				skipFiles = { "<node_internals>/**", "node_modules/**" },
 				resolveSourceMapLocations = {
-					"${workspaceFolder}/**",
+					"${workspaceFolder}/dist/**",
 					"!**/node_modules/**",
 				},
 				console = "integratedTerminal",
@@ -41,9 +48,15 @@ local M = function(dap)
 				request = "launch",
 				name = "Launch Chrome against localhost",
 				url = "https://hg-bishop-daniels-website.webflow.io/", -- The URL your frontend app is served on
-				webRoot = "${workspaceFolder}",
+				-- url = "http://localhost:3000/", -- The URL your frontend app is served on
+				webRoot = "${workspaceFolder}/dist",
 				sourceMaps = true,
-				trace = true, -- Optional: helps with debugging source maps
+				resolveSourceMapLocations = {
+					"${workspaceFolder}/dist/**",
+					"!**/node_modules/**",
+				},
+				stopOnEntry = true,
+				trace = false, -- Optional: helps with debugging source maps
 			},
 			{
 				type = "firefox",
@@ -52,7 +65,7 @@ local M = function(dap)
 				url = "https://hg-bishop-daniels-website.webflow.io/", -- The URL your frontend app is served on
 				webRoot = "${workspaceFolder}",
 				sourceMaps = true,
-				trace = true, -- Optional: helps with debugging source maps
+				-- trace = true, -- Optional: helps with debugging source maps
 			},
 		}
 	end

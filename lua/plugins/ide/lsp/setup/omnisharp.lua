@@ -16,9 +16,9 @@ local M = function(lspconfig, on_attach, capabilities, omnisharp_extended, flags
 			enable_import_completion = true,
 			enable_analyzers_support = true,
 			diagnostic_workers_thread_count = 32,
-			location_paths = {
-				"//path_to/code_actions.dll",
-			},
+			-- location_paths = {
+			-- 	"//path_to/code_actions.dll",
+			-- },
 			InlayHintsOptions = {
 				EnableForParameters = true,
 				ForLiteralParameters = true,

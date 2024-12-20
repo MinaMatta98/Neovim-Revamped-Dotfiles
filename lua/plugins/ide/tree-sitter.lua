@@ -42,7 +42,7 @@ return {
 				-- 		return true
 				-- 	end
 				-- end,
-				disable = { "markdown", "markdown_inline" },
+				-- disable = { "markdown", "markdown_inline" },
 
 				-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 				-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

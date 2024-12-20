@@ -3,7 +3,7 @@ return {
 	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = true, -- or `opts = {}`
+		config = true
 		-- 	opts = {
 		-- 		markdown = {
 		-- 			query = vim.treesitter.parse_query(

@@ -6,7 +6,8 @@ return {
 		event = "InsertEnter",
 		opts = {
 			panel = {
-				enabled = false, auto_refresh = false,
+				enabled = true,
+				auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
 					jump_next = "]]",
@@ -54,7 +55,7 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "canary",
+		branch = "main",
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
@@ -71,10 +72,10 @@ return {
 				border = "rounded",
 			},
 		},
-		config = function(_, opts)
-			require("CopilotChat.integrations.cmp").setup()
-			require("CopilotChat").setup(opts)
-		end,
+		-- config = function(_, opts)
+		-- 	-- require("CopilotChat.integrations.cmp").setup()
+		-- 	require("CopilotChat").setup(opts)
+		-- end,
 		keys = function()
 			local chat = require("CopilotChat")
 			return {
