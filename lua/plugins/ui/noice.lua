@@ -125,7 +125,7 @@ return {
 				opts = {}, -- merged with defaults from documentation
 			},
 			signature = {
-				enabled = false,
+				enabled = true,
 				silent = true,
 				auto_open = {
 					enabled = true,

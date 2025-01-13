@@ -17,7 +17,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"bashls",
-				"cssmodules_ls",
+				-- "cssmodules_ls",
 				"emmet_ls",
 				"clangd",
 				"lua_ls",
@@ -32,12 +32,10 @@ return {
 				"taplo",
 				"jsonls",
 				"lemminx",
-				"cssls",
+				-- "cssls",
 				"omnisharp",
 				"gopls",
 				"marksman",
-				"sqlls",
-				"unocss"
 			},
 		},
 		---@type '"prepend"' | '"append"' | '"skip"'
@@ -96,8 +94,8 @@ return {
 			automatic_installation = true,
 			ensure_installed = {
 				"stylua",
+				"prettierd",
 				"shellharden",
-				"astyle",
 				"black",
 				"beautysh",
 				"cpptools",

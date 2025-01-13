@@ -119,17 +119,18 @@ return {
 			"bashls",
 			"texlab",
 			"lua_ls",
-			"cssmodules_ls",
+			--"cssmodules_ls",
 			"emmet_ls",
+			-- "prettier",
 			"lemminx",
 			"jedi_language_server",
 			"taplo",
 			"jsonls",
-			"cssls",
+			-- "cssls",
 			"clangd",
 			"html",
 			"marksman",
-			"unocss",
+			"tailwindcss",
 		}
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
