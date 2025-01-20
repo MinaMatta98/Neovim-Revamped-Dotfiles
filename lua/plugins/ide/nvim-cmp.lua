@@ -56,12 +56,11 @@ return {
 			sorting = {
 				priority_weight = 2,
 				comparators = {
-					require("copilot_cmp.comparators").prioritize,
-
 					-- Below is the default comparitor list and order for nvim-cmp
 					cmp.config.compare.offset,
 					-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
 					cmp.config.compare.exact,
+					require("copilot_cmp.comparators").prioritize,
 					cmp.config.compare.score,
 					cmp.config.compare.recently_used,
 					cmp.config.compare.locality,
@@ -125,12 +124,12 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
-				{ name = "copilot", group_index = 2 }, -- Copilot Source
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "nvim_lsp_code_action" },
-				{ name = "luasnip" },
-				-- { name = 'nvim_lsp_document_symbol' },
 				{ name = "nvim_lsp", trigger_characters = { "-" } },
+				{ name = "luasnip" },
+				{ name = "copilot", group_index = 2 }, -- Copilot Source
+				-- { name = 'nvim_lsp_document_symbol' },
 				{ name = "cmp_buffer" },
 				{ name = "path" },
 				{ name = "crates" },

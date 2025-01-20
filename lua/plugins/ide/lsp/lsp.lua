@@ -120,7 +120,7 @@ return {
 			"texlab",
 			"lua_ls",
 			--"cssmodules_ls",
-			"emmet_ls",
+			"emmet_language_server",
 			-- "prettier",
 			"lemminx",
 			"jedi_language_server",

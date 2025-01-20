@@ -18,7 +18,7 @@ return {
 			ensure_installed = {
 				"bashls",
 				-- "cssmodules_ls",
-				"emmet_ls",
+				"emmet_language_server",
 				"clangd",
 				"lua_ls",
 				"bashls",
