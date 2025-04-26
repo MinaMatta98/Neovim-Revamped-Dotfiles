@@ -35,7 +35,7 @@ return {
 		popupmenu = {
 			enabled = true, -- enables the Noice popupmenu UI
 			---@type 'nui'|'cmp'
-			backend = "nui", -- backend to use to show regular cmdline completions
+			backend = "cmp", -- backend to use to show regular cmdline completions
 			-- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
 			kind_icons = {}, -- set to `false` to disable icons
 		},
@@ -110,38 +110,38 @@ return {
 				throttle = 1000 / 30, -- frequency to update lsp progress message
 				view = "mini",
 			},
-			override = {
-				-- override the default lsp markdown formatter with Noice
-				["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-				-- override the lsp markdown formatter with Noice
-				["vim.lsp.util.stylize_markdown"] = false,
-				-- override cmp documentation with Noice (needs the other options to work)
-				["cmp.entry.get_documentation"] = false,
-			},
+			-- override = {
+			-- 	-- override the default lsp markdown formatter with Noice
+			-- 	["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+			-- 	-- override the lsp markdown formatter with Noice
+			-- 	["vim.lsp.util.stylize_markdown"] = false,
+			-- 	-- override cmp documentation with Noice (needs the other options to work)
+			-- 	["cmp.entry.get_documentation"] = false,
+			-- },
 			hover = {
 				enabled = false,
 				silent = true, -- set to true to not show a message if hover is not available
 				view = nil, -- when nil, use defaults from documentation
 				opts = {}, -- merged with defaults from documentation
 			},
-			signature = {
-				enabled = true,
-				silent = true,
-				auto_open = {
-					enabled = true,
-					trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
-					luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
-					throttle = 50, -- Debounce lsp signature help request by 50ms
-				},
-				view = nil, -- when nil, use defaults from documentation
-				opts = {}, -- merged with defaults from documentation
-			},
-			message = {
-				-- Messages shown by lsp servers
-				enabled = true,
-				view = "notify",
-				opts = {},
-			},
+			-- signature = {
+			-- 	enabled = false,
+			-- 	silent = true,
+			-- 	auto_open = {
+			-- 		enabled = true,
+			-- 		trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+			-- 		luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+			-- 		throttle = 50, -- Debounce lsp signature help request by 50ms
+			-- 	},
+			-- 	view = nil, -- when nil, use defaults from documentation
+			-- 	opts = {}, -- merged with defaults from documentation
+			-- },
+			-- message = {
+			-- 	-- Messages shown by lsp servers
+			-- 	enabled = true,
+			-- 	view = "notify",
+			-- 	opts = {},
+			-- },
 			-- defaults for hover and signature help
 			documentation = {
 				view = "hover",
@@ -170,6 +170,9 @@ return {
 		-- },
 		health = {
 			checker = true, -- Disable if you don't want health checks to run
+		},
+		border = {
+			style = "rounded", -- border style. Can be `single`, `double`, `shadow`, or `rounded`
 		},
 		presets = {
 			-- you can enable a preset by setting it to true, or a table that will override the preset config

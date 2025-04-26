@@ -84,8 +84,8 @@ return {
 					side_padding = 0,
 					scrolloff = 0,
 					col_offset = 0,
-					winhighlight = "Normal:None,FloatBorder:Normal,CursorLine:PmenuSel,Search:Normal",
-					-- winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:PmenuSel,Search:None",
+					-- winhighlight = "Normal:None,FloatBorder:Normal,CursorLine:PmenuSel,Search:Normal",
+					winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:PmenuSel,Search:None",
 				}),
 				documentation = cmp.config.window.bordered({
 					col_offset = 0,
@@ -124,11 +124,11 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
+				{ name = "luasnip" },
+				{ name = "copilot", group_index = 2 }, -- Copilot Source
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "nvim_lsp_code_action" },
 				{ name = "nvim_lsp", trigger_characters = { "-" } },
-				{ name = "luasnip" },
-				{ name = "copilot", group_index = 2 }, -- Copilot Source
 				-- { name = 'nvim_lsp_document_symbol' },
 				{ name = "cmp_buffer" },
 				{ name = "path" },
